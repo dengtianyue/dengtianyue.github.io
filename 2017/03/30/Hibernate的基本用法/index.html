@@ -8,34 +8,31 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Hibernate的基本用法 | TYT的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#Hibernate 的基本开发步骤
-1.编写配置文档hibernat.cfg.xml例如:
+  <meta name="description" content="Hibernate 的基本开发步骤1.编写配置文档hibernat.cfg.xml例如:
    &amp;lt;session-factory&amp;gt;
     &amp;lt;!--数据库用户名--&amp;gt;
     &amp;lt;property name=&amp;quot;connection.username&amp;quot;&amp;gt;root&amp;lt;/property&amp;gt;
-    &amp;lt;!--数据库登录密码--&amp;gt">
+    &amp;lt;!--数据库登录密码--&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate的基本用法">
 <meta property="og:url" content="http://yoursite.com/2017/03/30/Hibernate的基本用法/index.html">
 <meta property="og:site_name" content="TYT的博客">
-<meta property="og:description" content="#Hibernate 的基本开发步骤
-1.编写配置文档hibernat.cfg.xml例如:
+<meta property="og:description" content="Hibernate 的基本开发步骤1.编写配置文档hibernat.cfg.xml例如:
    &amp;lt;session-factory&amp;gt;
     &amp;lt;!--数据库用户名--&amp;gt;
     &amp;lt;property name=&amp;quot;connection.username&amp;quot;&amp;gt;root&amp;lt;/property&amp;gt;
-    &amp;lt;!--数据库登录密码--&amp;gt">
+    &amp;lt;!--数据库登录密码--&amp;gt;">
 <meta property="og:image" content="https://github.com/dengtianyue/somePhotos/blob/0d17b59755ff6ce3e79d97bf71634f8b25da5016/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/1.png?raw=true">
 <meta property="og:image" content="https://github.com/dengtianyue/somePhotos/blob/0d17b59755ff6ce3e79d97bf71634f8b25da5016/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/2.png?raw=true">
 <meta property="og:image" content="https://github.com/dengtianyue/somePhotos/blob/0d17b59755ff6ce3e79d97bf71634f8b25da5016/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/3.png?raw=true">
-<meta property="og:updated_time" content="2017-03-29T16:53:29.612Z">
+<meta property="og:updated_time" content="2017-03-29T17:16:53.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate的基本用法">
-<meta name="twitter:description" content="#Hibernate 的基本开发步骤
-1.编写配置文档hibernat.cfg.xml例如:
+<meta name="twitter:description" content="Hibernate 的基本开发步骤1.编写配置文档hibernat.cfg.xml例如:
    &amp;lt;session-factory&amp;gt;
     &amp;lt;!--数据库用户名--&amp;gt;
     &amp;lt;property name=&amp;quot;connection.username&amp;quot;&amp;gt;root&amp;lt;/property&amp;gt;
-    &amp;lt;!--数据库登录密码--&amp;gt">
+    &amp;lt;!--数据库登录密码--&amp;gt;">
 <meta name="twitter:image" content="https://github.com/dengtianyue/somePhotos/blob/0d17b59755ff6ce3e79d97bf71634f8b25da5016/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/1.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="TYT的博客" type="application/atom+xml">
@@ -65,7 +62,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="bear.jpg" class="js-avatar">
+			<img src="https://avatars0.githubusercontent.com/u/18410647?v=3&amp;u=5e3c7b1f942ee30766a4c2c325efd395b670a2c4&amp;s=400" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">邓</a></h1>
@@ -125,7 +122,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="bear.jpg" class="js-avatar">
+				<img src="https://avatars0.githubusercontent.com/u/18410647?v=3&amp;u=5e3c7b1f942ee30766a4c2c325efd395b670a2c4&amp;s=400" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">邓</h1>
@@ -196,8 +193,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Hibernate 的基本开发步骤</p>
-<h2 id="1-编写配置文档hibernat-cfg-xml"><a href="#1-编写配置文档hibernat-cfg-xml" class="headerlink" title="1.编写配置文档hibernat.cfg.xml"></a>1.编写配置文档hibernat.cfg.xml</h2><p>例如:</p>
+        <h1 id="Hibernate-的基本开发步骤"><a href="#Hibernate-的基本开发步骤" class="headerlink" title="Hibernate 的基本开发步骤"></a>Hibernate 的基本开发步骤</h1><h2 id="1-编写配置文档hibernat-cfg-xml"><a href="#1-编写配置文档hibernat-cfg-xml" class="headerlink" title="1.编写配置文档hibernat.cfg.xml"></a>1.编写配置文档hibernat.cfg.xml</h2><p>例如:</p>
 <pre><code>   &lt;session-factory&gt;
     &lt;!--数据库用户名--&gt;
     &lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;
