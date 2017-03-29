@@ -179,7 +179,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Hibernate-的基本开发步骤"><a href="#Hibernate-的基本开发步骤" class="headerlink" title="Hibernate 的基本开发步骤"></a>Hibernate 的基本开发步骤</h1><h2 id="1-编写配置文档hibernat-cfg-xml"><a href="#1-编写配置文档hibernat-cfg-xml" class="headerlink" title="1.编写配置文档hibernat.cfg.xml"></a>1.编写配置文档hibernat.cfg.xml</h2><p>例如:</p>
-<pre><code>   &lt;session-factory&gt;
+<pre><code class="java">   &lt;session-factory&gt;
     &lt;!--数据库用户名--&gt;
     &lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;
     &lt;!--数据库登录密码--&gt;
@@ -199,13 +199,14 @@
     &lt;!--对应的映射 --&gt;
     &lt;mapping resource=&quot;Students.hbm.xml&quot;/&gt;
     &lt;/session-factory&gt;
-</code></pre><p>单一主键:<br>1.assigned 由java应用程序负责生成（手工赋值）</p>
+</code></pre>
+<p>单一主键:<br>1.assigned 由java应用程序负责生成（手工赋值）</p>
 <p>2.native 由底层数据库自动生成标示符，如果是MySQL就是increment，如果是Oracle就是sequence，等等</p>
 <p>Ps1：assigned注意：如果实体类中设置的主键id是基本类型int的话，则可以不用赋值，系统默认值为0；如是引用类型Integer话，则默认值为null，不赋值系统则报错。</p>
 <p>Ps2：native注意：系统会自动选择该数据库对应的自动增值方式，从1开始。即使手动给他赋值，也不会起作用，但也不会报错。<br><img src="https://github.com/dengtianyue/somePhotos/blob/0d17b59755ff6ce3e79d97bf71634f8b25da5016/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/1.png?raw=true" alt="图片"></p>
 <h2 id="2-编写实体类"><a href="#2-编写实体类" class="headerlink" title="2.编写实体类"></a>2.编写实体类</h2><p>需要符合JAVA BEAN 规范 即:<br>1、公有的类。<br>2、提供公有的不带参数的默认的构造方法。<br>3、属性私有。<br>4、属性setter/getter封装</p>
 <h2 id="3-生成对应实体类的映射文件"><a href="#3-生成对应实体类的映射文件" class="headerlink" title="3.生成对应实体类的映射文件"></a>3.生成对应实体类的映射文件</h2><p>可在包上鼠标右键,点击new-&gt;other-&gt;Hibernate-&gt;Hibernate XML Mapping file(hbm.xml)自动创建<br>如:</p>
-<pre><code>&lt;hibernate-mapping&gt;
+<pre><code class="java">&lt;hibernate-mapping&gt;
     &lt;class name=&quot;Students&quot; table=&quot;STUDENTS&quot;&gt;
         &lt;id name=&quot;id&quot; type=&quot;int&quot;&gt;
             &lt;column name=&quot;ID&quot; /&gt;
@@ -231,8 +232,9 @@
         &lt;/component&gt;
     &lt;/class&gt;
 &lt;/hibernate-mapping&gt;
-</code></pre><h3 id="常用配置如下"><a href="#常用配置如下" class="headerlink" title="常用配置如下:"></a>常用配置如下:</h3><h2 id="4-调用Hibernate-API进行测试"><a href="#4-调用Hibernate-API进行测试" class="headerlink" title="4.调用Hibernate API进行测试"></a>4.调用Hibernate API进行测试</h2><p>例如:</p>
-<pre><code>import java.io.File;
+</code></pre>
+<h3 id="常用配置如下"><a href="#常用配置如下" class="headerlink" title="常用配置如下:"></a>常用配置如下:</h3><h2 id="4-调用Hibernate-API进行测试"><a href="#4-调用Hibernate-API进行测试" class="headerlink" title="4.调用Hibernate API进行测试"></a>4.调用Hibernate API进行测试</h2><p>例如:</p>
+<pre><code class="java">import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -326,7 +328,8 @@ public class StudentsTest {
     output.close();
 
   }
-</code></pre><h2 id="Hibernate其他一些基础知识"><a href="#Hibernate其他一些基础知识" class="headerlink" title="Hibernate其他一些基础知识"></a>Hibernate其他一些基础知识</h2><h3 id="transaction：事务"><a href="#transaction：事务" class="headerlink" title="transaction：事务"></a>transaction：事务</h3><p>Hibernate对数据的操作都是封装在事务当中，并且默认是非自动提交的方式。所以用session保存对象时，如果不开启事务，并且手工提交事务，对象并不会真正保存在数据库中  如上例中的：</p>
+</code></pre>
+<h2 id="Hibernate其他一些基础知识"><a href="#Hibernate其他一些基础知识" class="headerlink" title="Hibernate其他一些基础知识"></a>Hibernate其他一些基础知识</h2><h3 id="transaction：事务"><a href="#transaction：事务" class="headerlink" title="transaction：事务"></a>transaction：事务</h3><p>Hibernate对数据的操作都是封装在事务当中，并且默认是非自动提交的方式。所以用session保存对象时，如果不开启事务，并且手工提交事务，对象并不会真正保存在数据库中  如上例中的：</p>
 <pre><code>        ```
            //开启事务
 transaction = session.beginTransaction();
