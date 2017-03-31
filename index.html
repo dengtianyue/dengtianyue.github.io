@@ -158,6 +158,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hibernate中配置映射关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/Hibernate中配置映射关系/">Hibernate中配置映射关系</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/Hibernate中配置映射关系/" class="archive-article-date">
+  	<time datetime="2017-03-31T11:06:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hibernate中配置映射关系"><a href="#Hibernate中配置映射关系" class="headerlink" title="Hibernate中配置映射关系"></a>Hibernate中配置映射关系</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>进行Hibernate的基本配置</li>
+<li>创建HibernateUtil工具类</li>
+<li>进行数据表的建立</li>
+<li>创建持久化类和映射关系文件</li>
+</ul>
+<h2 id="配置单向一对多关系"><a href="#配置单向一对多关系" class="headerlink" title="配置单向一对多关系"></a>配置单向一对多关系</h2><p>使用<set>标签在一方的hbm.xml文件中,配置单向的一对多映射,如:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 配置单向的一对多映射 设置inverse属性为true 由多方维护关联关系 ,</div><div class="line">            设置cascade="save-update",当进行保存和更新时级联操作所关联的对象--&gt;</div><div class="line">        &lt;set name="students" table="student" inverse="false" lazy="true" cascade="save-update"&gt;</div><div class="line">        &lt;!-- 指定关联的外键列 --&gt;</div><div class="line">            &lt;key&gt;</div><div class="line">                &lt;column name="gid" /&gt;</div><div class="line">            &lt;/key&gt;</div><div class="line">            &lt;one-to-many class="entity.Student" /&gt;</div><div class="line">        &lt;/set&gt;</div></pre></td></tr></table></figure></set></p>
+<p>测试类:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将学生添加到班级</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>&#123;</div><div class="line">    Grade g = <span class="keyword">new</span> Grade(<span class="string">"JAVA1"</span>,<span class="string">"JAVA软件开发一班"</span>);</div><div class="line">    Student stu1 = <span class="keyword">new</span> Student(<span class="string">"张三"</span>,<span class="string">"男"</span>);</div><div class="line">    Student stu2 = <span class="keyword">new</span> Student(<span class="string">"青青"</span>,<span class="string">"男"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//如果希望在学生表中添加对应的班级编号,需要在班级中添加学生,建立关联关系</span></div><div class="line">    g.getStudents().add(stu1);</div><div class="line">    g.getStudents().add(stu2);</div><div class="line"></div><div class="line">    Session session = HibernateUtil.getSession();</div><div class="line">    Transaction tx = session.beginTransaction();</div><div class="line">    session.save(g);</div><div class="line">    session.save(stu1);</div><div class="line">    session.save(stu2);</div><div class="line">    tx.commit();</div><div class="line">    HibernateUtil.closeSession(session);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//查询班级学生信息</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findStudentsByGrade</span><span class="params">()</span></span>&#123;</div><div class="line">    Session session = HibernateUtil.getSession();</div><div class="line">    Grade grade = (Grade) session.get(Grade.class, <span class="number">1</span>);</div><div class="line">    System.out.println(grade.getGname()+<span class="string">","</span>+grade.getGdesc());</div><div class="line">    Set&lt;Student&gt;students = grade.getStudents();</div><div class="line">    <span class="keyword">for</span>(Student stu : students)&#123;</div><div class="line">        System.out.println(stu.getSname()+<span class="string">","</span>+stu.getSex());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="单向多对一的配置"><a href="#单向多对一的配置" class="headerlink" title="单向多对一的配置"></a>单向多对一的配置</h2><p>在多方的hbm.xml文件中,使用<many-to-one>标签配置<br>如:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 配置多对一关联配置 --&gt;</div><div class="line">        &lt;many-to-one name="grade" class = "entity.Grade" column="gid"&gt;&lt;/many-to-one&gt;</div></pre></td></tr></table></figure></many-to-one></p>
+<h2 id="当双方关系都配置好后-即双向映射已经配置"><a href="#当双方关系都配置好后-即双向映射已经配置" class="headerlink" title="当双方关系都配置好后,即双向映射已经配置"></a>当双方关系都配置好后,即双向映射已经配置</h2><p>测试:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//保存,测试多对一映射</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</div><div class="line">    Grade g = <span class="keyword">new</span> Grade(<span class="string">"JAVA1"</span>,<span class="string">"JAVA软件开发一班"</span>);</div><div class="line">    Student stu1 = <span class="keyword">new</span> Student(<span class="string">"呵呵"</span>,<span class="string">"男"</span>);</div><div class="line">    Student stu2 = <span class="keyword">new</span> Student(<span class="string">"小美"</span>,<span class="string">"女"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置关联关系</span></div><div class="line">    g.getStudents().add(stu1);</div><div class="line">    g.getStudents().add(stu2);</div><div class="line">    stu1.setGrade(g);</div><div class="line">    stu2.setGrade(g);</div><div class="line"></div><div class="line">    Session session = HibernateUtil.getSession();</div><div class="line">    Transaction tx = session.beginTransaction();</div><div class="line">    session.save(g);</div><div class="line">    <span class="comment">//session.save(stu1);</span></div><div class="line">    <span class="comment">//session.save(stu2);</span></div><div class="line">    tx.commit();</div><div class="line">    HibernateUtil.closeSession(session);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">    <span class="comment">//双向多对一测试</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findGradeByStudent</span><span class="params">()</span></span>&#123;</div><div class="line">    Session session = HibernateUtil.getSession();</div><div class="line">    Student stu = (Student) session.get(Student.class, <span class="number">2</span>);</div><div class="line">    Grade grade = stu.getGrade();</div><div class="line">    System.out.println(stu.getSid()+<span class="string">","</span>+stu.getSname()+<span class="string">","</span>+stu.getSex());</div><div class="line"></div><div class="line">    System.out.println(grade.getGid()+<span class="string">","</span>+grade.getGname()+<span class="string">","</span>+grade.getGdesc());</div><div class="line">    HibernateUtil.closeSession(session);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点:"></a>相关知识点:</h2><h3 id="1-inverse属性的用法"><a href="#1-inverse属性的用法" class="headerlink" title="1.inverse属性的用法"></a>1.inverse属性的用法</h3><p>在一对多关联关系中默认有one方维护关联关系，因为是双向一对多关联关系，所以one方需进行两次关联关系的维护<br>，当在one方设置inverse属性值为true时，反转，即让多方进行关联关系的维护，此时不需要执行update 多方表名（student） set 单方表的主键（多方表中的外键即gid）等于单方某记录的gid值<br>当sid为值一，sid为值二，，，，（student表中有n个记录则需执行n次操作）这些操作，所以当在one方设置inverse属性值为true时有利于改善系统性能。</p>
+<h3 id="2-cascade属性的用法"><a href="#2-cascade属性的用法" class="headerlink" title="2.cascade属性的用法"></a>2.cascade属性的用法</h3><ul>
+<li>当设置cascade属性部位none时,Hibernate会自动持久化所关联的对象</li>
+<li>cascade属性的常用设置:</li>
+<li>all—&gt;对所有操作进行级联操作</li>
+<li>save-update–&gt;执行保存和更新操作时进行级联操作</li>
+<li>delete–&gt;执行删除操作时进行级联操作</li>
+<li>none–&gt;对所有操作不进行级联操作</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/Hibernate中配置映射关系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Hibernate的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
