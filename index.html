@@ -158,6 +158,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多对多关系的处理办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/多对多关系的处理办法/">多对多关系的处理办法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/多对多关系的处理办法/" class="archive-article-date">
+  	<time datetime="2017-03-31T11:36:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="多对多关系的处理"><a href="#多对多关系的处理" class="headerlink" title="多对多关系的处理"></a>多对多关系的处理</h1><p>在数据库设计的过程中,经常会遇到两张表是多对多的关系.<br>如订单和商品之间的关系:一个订单包含了很多商品,而一种商品同时也可能属于多个订单.<br>这时就需要通过建立一个第三方关联表,将多对多关系拆分成两个一对多关系.其中关联表为多方.</p>
+<h2 id="实例如下"><a href="#实例如下" class="headerlink" title="实例如下:"></a>实例如下:</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li>一种菜品属于一个菜系,一个菜系也包括很多菜品;</li>
+<li>一种菜品根据原材料分可以分为多个种类,如番茄炒蛋可以归为蛋类也可归为蔬菜类,而每个种类下也有多个菜品</li>
+<li>通过建立菜系-菜品关联表,种类-菜品关联表来处理菜品与菜系,菜品与种类之间的多对多关系</li>
+<li>数据表名词解释:</li>
+</ul>
+<ol>
+<li>food:菜品</li>
+<li>foodstyle:菜系</li>
+<li>foodtype:种类</li>
+<li>stylelink:菜系-菜品关联表</li>
+<li>typelink:种类-菜品关联表</li>
+</ol>
+<p>对应的ER图如下:<br><img src="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/eatER.png?raw=true" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/多对多关系的处理办法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Hibernate中配置映射关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
