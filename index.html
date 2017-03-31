@@ -158,6 +158,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-新手使用github的心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/新手使用github的心得/">新手使用github的心得</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/31/新手使用github的心得/" class="archive-article-date">
+  	<time datetime="2017-03-31T12:33:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个新手最近开始使用github,记录一下自己初识github的心得</p>
+<p>#1. 建立仓库<br>建立仓库的过程不多说,登录到github网站以后,点击绿色的 New  repository,然后按照步骤创建项目就可以了.创建的过程中可以选择是否自动生成readme文件.</p>
+<p>#2. 克隆仓库到本地</p>
+<ol>
+<li>可以克隆的前提是已经配置好git和ssh,关于git和ssh的配置可以在网上搜索,有很多的大神分享=.=</li>
+<li>git配置好以后,在本地新建一个文件夹,在文件夹中鼠标右键,选择git bash,进入命令行后执行<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/dengtianyue/whatToEat.git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这个网址就是你刚刚建立仓库以后,浏览器中显示的网址后添加”.git”就可以了,也可以进入仓库后,右侧有一个绿色的<br> Clone or download按钮,点击它也会出来这个url.</p>
+<ol>
+<li>克隆成功后,会发现文件夹里已经多出了一个以仓库名为名字的文件夹.<br>#3. 对文件夹进行git初始化<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git init</div><div class="line">git remote https:<span class="regexp">//gi</span>thub.com<span class="regexp">/dengtianyue/</span>whatToEat.git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>初始化只要执行一次就够了,以后不需要再次执行.如果执行初始化过程中它提示　　fatal: remote origin already exists<br>说明已经配置过了,可以直接进行下一步</p>
+<p>#4. push文件<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line">　　git commit -m <span class="string">'备注,一定要写'</span></div><div class="line">　　git push origin master</div></pre></td></tr></table></figure></p>
+<p>其中add 后可以加文件名 ,加一个.是指全部上传</p>
+<p>如果执行 git push origin master 时报错:error:failed to push som refs to…<br>则可以试着执行<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin <span class="literal">master</span></div></pre></td></tr></table></figure></p>
+<p>再执行<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</div></pre></td></tr></table></figure></p>
+<p>先把远程服务器github上面的文件拉先来，再push 上去。<br>ps:这是一个新手初步使用github的心得,十分浅显.深入了解github的使用请参考网上大神们的教程=.=</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/31/新手使用github的心得/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-多对多关系的处理办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
