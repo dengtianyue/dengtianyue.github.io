@@ -6,48 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>基于吃什么项目对MVC分层模型的学习 | TYT的博客</title>
+  <title>腾讯云部署java web项目过程.md | TYT的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在做完”Whatoeat”这个项目后,对于MVC分层模型有了更深层次的了解
-MVC分层模型:
-Whatoeat 的目录结构:
-
-目录结构解析:src:
-action : 动作层,起控制器的作用—–取掉转
-db : 数据库层.负责连接数据库,获得sessionFactory
-entity : 实体层,对应数据库表的实体类
-service : 业务逻辑接口层
-serviceimpl : 接口实现层 对">
+  <meta name="description" content="在腾讯云上通过购买了云主机和域名以后,就把自己的”whatoeat”项目部署在上面,其中遇到了很多问题,现在记录下这个过程.
+一. 搭建环境云主机上我选择的系统是windows server2008,采用腾讯云服务市场上自带MySQL 5.5 JDK6/7/8 和Tomecat6/7/8 以及FileZilla虽然软件都安装好了,但是环境还是要自己配置的.环境配置如下:
+1 配置JDK环境变量（在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于吃什么项目对MVC分层模型的学习">
-<meta property="og:url" content="http://yoursite.com/2017/04/24/基于吃什么项目对MVC分层模型的学习/index.html">
+<meta property="og:title" content="腾讯云部署java web项目过程.md">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/腾讯云部署java-web项目过程/index.html">
 <meta property="og:site_name" content="TYT的博客">
-<meta property="og:description" content="在做完”Whatoeat”这个项目后,对于MVC分层模型有了更深层次的了解
-MVC分层模型:
-Whatoeat 的目录结构:
-
-目录结构解析:src:
-action : 动作层,起控制器的作用—–取掉转
-db : 数据库层.负责连接数据库,获得sessionFactory
-entity : 实体层,对应数据库表的实体类
-service : 业务逻辑接口层
-serviceimpl : 接口实现层 对">
-<meta property="og:image" content="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/MVC.jpg?raw=true">
-<meta property="og:image" content="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/Whatoeat.png?raw=true">
-<meta property="og:updated_time" content="2017-04-24T12:42:45.695Z">
+<meta property="og:description" content="在腾讯云上通过购买了云主机和域名以后,就把自己的”whatoeat”项目部署在上面,其中遇到了很多问题,现在记录下这个过程.
+一. 搭建环境云主机上我选择的系统是windows server2008,采用腾讯云服务市场上自带MySQL 5.5 JDK6/7/8 和Tomecat6/7/8 以及FileZilla虽然软件都安装好了,但是环境还是要自己配置的.环境配置如下:
+1 配置JDK环境变量（在">
+<meta property="og:updated_time" content="2017-05-15T15:10:05.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于吃什么项目对MVC分层模型的学习">
-<meta name="twitter:description" content="在做完”Whatoeat”这个项目后,对于MVC分层模型有了更深层次的了解
-MVC分层模型:
-Whatoeat 的目录结构:
-
-目录结构解析:src:
-action : 动作层,起控制器的作用—–取掉转
-db : 数据库层.负责连接数据库,获得sessionFactory
-entity : 实体层,对应数据库表的实体类
-service : 业务逻辑接口层
-serviceimpl : 接口实现层 对">
-<meta name="twitter:image" content="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/MVC.jpg?raw=true">
+<meta name="twitter:title" content="腾讯云部署java web项目过程.md">
+<meta name="twitter:description" content="在腾讯云上通过购买了云主机和域名以后,就把自己的”whatoeat”项目部署在上面,其中遇到了很多问题,现在记录下这个过程.
+一. 搭建环境云主机上我选择的系统是windows server2008,采用腾讯云服务市场上自带MySQL 5.5 JDK6/7/8 和Tomecat6/7/8 以及FileZilla虽然软件都安装好了,但是环境还是要自己配置的.环境配置如下:
+1 配置JDK环境变量（在">
   
     <link rel="alternative" href="/atom.xml" title="TYT的博客" type="application/atom+xml">
   
@@ -187,39 +163,58 @@ serviceimpl : 接口实现层 对">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-基于吃什么项目对MVC分层模型的学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-腾讯云部署java-web项目过程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基于吃什么项目对MVC分层模型的学习
+      腾讯云部署java web项目过程.md
     </h1>
   
 
         
-        <a href="/2017/04/24/基于吃什么项目对MVC分层模型的学习/" class="archive-article-date">
-  	<time datetime="2017-04-24T12:35:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-24</time>
+        <a href="/2017/05/15/腾讯云部署java-web项目过程/" class="archive-article-date">
+  	<time datetime="2017-05-15T15:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在做完”Whatoeat”这个项目后,对于MVC分层模型有了更深层次的了解</p>
-<h2 id="MVC分层模型"><a href="#MVC分层模型" class="headerlink" title="MVC分层模型:"></a>MVC分层模型:</h2><p><img src="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/MVC.jpg?raw=true" alt="MVC"></p>
-<h2 id="Whatoeat-的目录结构"><a href="#Whatoeat-的目录结构" class="headerlink" title="Whatoeat 的目录结构:"></a>Whatoeat 的目录结构:</h2><p><img src="https://github.com/dengtianyue/somePhotos/blob/master/Hibernate%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/Whatoeat.png?raw=true" alt="folder"></p>
-<p><hr></p>
-<h2 id="目录结构解析"><a href="#目录结构解析" class="headerlink" title="目录结构解析:"></a>目录结构解析:</h2><h3 id="src"><a href="#src" class="headerlink" title="src:"></a>src:</h3><ul>
-<li>action : 动作层,起控制器的作用—–取掉转</li>
-<li>db : 数据库层.负责连接数据库,获得sessionFactory</li>
-<li>entity : 实体层,对应数据库表的实体类</li>
-<li>service : 业务逻辑接口层</li>
-<li>serviceimpl : 接口实现层 对数据进行一些操作</li>
+        <p>在腾讯云上通过购买了云主机和域名以后,就把自己的”whatoeat”项目部署在上面,其中遇到了很多问题,现在记录下这个过程.</p>
+<h1 id="一-搭建环境"><a href="#一-搭建环境" class="headerlink" title="一. 搭建环境"></a>一. 搭建环境</h1><p>云主机上我选择的系统是windows server2008,采用腾讯云服务市场上自带MySQL 5.5 JDK6/7/8 和Tomecat6/7/8 以及FileZilla<br>虽然软件都安装好了,但是环境还是要自己配置的.环境配置如下:</p>
+<h2 id="1-配置JDK环境变量（在步骤查看如何配置环境变量）"><a href="#1-配置JDK环境变量（在步骤查看如何配置环境变量）" class="headerlink" title="1 配置JDK环境变量（在步骤查看如何配置环境变量）"></a>1 配置JDK环境变量（在步骤查看如何配置环境变量）</h2><p>1 新建变量名：JAVA_HOME，变量值：C:\Program Files\Java\jdk1.7.0<br>2 打开PATH，添加变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin<br>3 新建变量名：CLASSPATH，变量值：.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar<br>备注：</p>
+<ul>
+<li>.表示当前路径，%JAVA_HOME%就是引用前面指定的JAVA_HOME；</li>
+<li>JAVA_HOME指明JDK安装路径，此路径下包括lib，bin，jre等文件夹，tomcat，eclipse等的运行都需要依靠此变量。</li>
+<li>PATH使得系统可以在任何路径下识别java命令。</li>
+<li>CLASSPATH为java加载类(class or lib)路径，只有类在classpath中，java命令才能识别。<h2 id="2-测试JDK"><a href="#2-测试JDK" class="headerlink" title="2. 测试JDK"></a>2. 测试JDK</h2>在CMD命令下输入javac，java，javadoc命令：出现提示界面，表示安装成功。<h2 id="3-配置Tomcat环境变量"><a href="#3-配置Tomcat环境变量" class="headerlink" title="3. 配置Tomcat环境变量"></a>3. 配置Tomcat环境变量</h2>1 新建变量名：CATALINA_BASE，变量值：C:\tomcat<br>2 新建变量名：CATALINA_HOME，变量值：C:\tomcat<br>3 打开PATH，添加变量值：%CATALINA_HOME%\lib;%CATALINA_HOME%\bin<h2 id="4-测试Tomcat"><a href="#4-测试Tomcat" class="headerlink" title="4. 测试Tomcat"></a>4. 测试Tomcat</h2>在tomcat的安装目录下,启动startup,启动成功后打开浏览器，在地址栏中输入<a href="http://localhost:8080回车，如果看到Tomcat自带的一个JSP页面(猫)，说明你的JDK和Tomcat已搭建成功。" target="_blank" rel="external">http://localhost:8080回车，如果看到Tomcat自带的一个JSP页面(猫)，说明你的JDK和Tomcat已搭建成功。</a></li>
 </ul>
-<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>单元测试类,负责模块的测试</p>
-<h3 id="Webroot"><a href="#Webroot" class="headerlink" title="Webroot"></a>Webroot</h3><p>Web应用部署后各文件的所在地,包括Web前端的css,js等和jsp文件.<br>java文件编译后将保存于WEB-INF/class目录下</p>
+<h1 id="二-部署项目"><a href="#二-部署项目" class="headerlink" title="二. 部署项目"></a>二. 部署项目</h1><p>1 将项目打包成 war 包并把数据库数据导出成sql文件,将war包和sql文件通过FileZilla上传到服务器中.<br>2 在mysql命令行中使用 source +sql文件路径 命令导入数据<br>3 将war包放入tomcat文件夹下的webapps目录,启动tomcat,tomcat会自动解压项目<br>4 完成后在浏览器中放问 localhost:8080/项目名称 出现项目页面则成功</p>
+<h1 id="三-域名解析"><a href="#三-域名解析" class="headerlink" title="三. 域名解析"></a>三. 域名解析</h1><p>在腾讯云的域名管理界面解析域名</p>
+<h1 id="四-绑定域名"><a href="#四-绑定域名" class="headerlink" title="四. 绑定域名"></a>四. 绑定域名</h1><p>如果有一个服务器已经部署好项目已做域名解析使用IP:8080/项目名称 能够访问项目  一般你这样做就能使用域名直接访问项目了:</p>
+<ul>
+<li>cd 到你的tomcat下修改server.xml文件中监听端口:<br>修改前:<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改后:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"80"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<p>也就是说将监听端口，修改为默认的80端口。</p>
+<ul>
+<li>继续修改server.xml中Host<br>找到<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改为：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"你的域名"</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>以及在该<host>…</host>标签内添加<context>标签<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">""</span> <span class="attr">docBase</span>=<span class="string">"/myApp"</span> /&gt;</span></div></pre></td></tr></table></figure></context></p>
+<p> docBase属性填写你的项目位置，最好是绝对路径即…../webapps/myApp。</p>
+<ul>
+<li><p>whatoeat项目中,tomcat xml文件最终修改如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"www.whatoeat.cn"</span> <span class="attr">appBase</span>=<span class="string">"C:\virtualhost\dengtianyue"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span></span></div><div class="line"><span class="attr">autoDeploy</span>=<span class="string">"true"</span> <span class="attr">xmlValidation</span>=<span class="string">"false"</span> <span class="attr">xmlNamespaceAware</span>=<span class="string">"false"</span>&gt;</div><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/whaToEat"</span> <span class="attr">docBase</span>=<span class="string">"C:\virtualhost\dengtianyue\whaToEat"</span></span></div><div class="line"> <span class="attr">reloadable</span>=<span class="string">"false"</span> <span class="attr">source</span>=<span class="string">"org.eclipse.jst.jee.server:whaToEat"</span>/&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">Host</span>&gt;</span><span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"80"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span>/&gt;</span><span class="tag">&lt;/<span class="name">Service</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>重启tomcat,打开浏览器,输入域名访问即可</p>
+</li>
+</ul>
 
       
 
@@ -299,7 +294,7 @@ serviceimpl : 接口实现层 对">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/24/基于吃什么项目对MVC分层模型的学习/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/15/腾讯云部署java-web项目过程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +308,9 @@ serviceimpl : 接口实现层 对">
   
 <nav id="article-nav">
   
-    <a href="/2017/05/15/腾讯云部署java-web项目过程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          腾讯云部署java web项目过程.md
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/31/新手使用github的心得/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">新手使用github的心得</div>
+    <a href="/2017/04/24/基于吃什么项目对MVC分层模型的学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于吃什么项目对MVC分层模型的学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
