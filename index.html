@@ -158,6 +158,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/15/hexo常用命令/">hexo常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/15/hexo常用命令/" class="archive-article-date">
+  	<time datetime="2017-05-15T15:17:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简写<br>hexo n == hexo new</p>
+<p>hexo p == hexo publish</p>
+<p>hexo g == hexo generate</p>
+<p>hexo s == hexo server</p>
+<p>hexo d == hexo deploy</p>
+<p>服务器<br>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。</p>
+<p>hexo server -s #静态模式</p>
+<p>hexo server -p 5000 #更改端口</p>
+<p>hexo server -i 192.168.1.1 #自定义 IP</p>
+<p>hexo clean #清除缓存 网页正常情况下可以忽略此条命令</p>
+<p>hexo g #生成静态网页</p>
+<p>hexo d #开始部署</p>
+<p>监视文件变动<br>hexo generate #使用 Hexo 生成静态文件快速而且简单</p>
+<p>hexo generate –watch #监视文件变动</p>
+<p>完成后部署<br>两个命令的作用是相同的</p>
+<p>hexo generate –deploy hexo deploy –generate<br>hexo deploy -g hexo server -g<br>草稿<br>hexo publish [layout] &lt;title&gt;</p>
+<p>模版<br>hexo new “postName” #新建文章</p>
+<p>hexo new page “pageName” #新建页面</p>
+<p>hexo generate #生成静态页面至public目录</p>
+<p>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</p>
+<p>hexo deploy #将.deploy目录部署到GitHub</p>
+<p>hexo new [layout] <title> hexo new photo “My Gallery” hexo new “Hello World” –lang tw<br>变量  描述<br>layout  布局<br>title 标题<br>date  文件建立日期<br>title: 使用Hexo搭建个人博客<br>layout: post<br>date: 2014-03-03 19:07:43<br>comments: true<br>categories: Blog<br>tags: [Hexo]<br>keywords: Hexo, Blog<br>description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。<br>模版（Scaffold）<br>hexo new photo &quot;My Gallery&quot;</title></p>
+<p>变量  描述<br>layout  布局<br>title 标题<br>date  文件建立日期<br>写作<br>hexo new page <title> hexo new post <title><br>变量  描述<br>:title  标题<br>:year 建立的年份（4 位数）<br>:month  建立的月份（2 位数）<br>:i_month  建立的月份（去掉开头的零）<br>:day  建立的日期（2 位数）<br>:i_day  建立的日期（去掉开头的零）<br>推送到服务器上<br>hexo n #写文章</title></title></p>
+<p>hexo g #生成</p>
+<p>hexo d #部署 #可与 hexo g 合并为 hexo d -g</p>
+<p>报错<br>1.<br>ERROR Deployer not found: git<br>npm install hexo-deployer-git –save</p>
+<p>来源： <a href="http://www.tuicool.com/articles/yUreInQ" target="_blank" rel="external">http://www.tuicool.com/articles/yUreInQ</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/15/hexo常用命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-腾讯云部署java-web项目过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
